@@ -1,14 +1,20 @@
 import React, {PropTypes} from 'react';
 
-export default function Logo(props) {
-  const className = props.isCentered ? 'has-text-centered' : '';
+export default function SearchForm({
+  handleSummit,
+  handleChange
+}) {
   return (
-    <div className={className}>
-      <img src='images/marvel-logo.jpg' className='img--logo' role='presentation'/>
-    </div>
+    <form onSubmit={handleSummit}>
+      <input type='text' onChange={handleChange}/>
+      <button>
+        Search
+      </button>
+    </form>
   );
 }
 
-Logo.propTypes = {
-  isCentered: PropTypes.bool
+SearchForm.propTypes = {
+  handleSummit: PropTypes.func.isRequired,
+  handleChange: PropTypes.func.isRequired
 };
