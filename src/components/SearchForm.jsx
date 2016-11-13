@@ -1,13 +1,14 @@
 import React, {PropTypes} from 'react';
+import './SearchForm.scss';
 
 export default function SearchForm({
   handleSummit,
   handleChange
 }) {
   return (
-    <form onSubmit={handleSummit}>
-      <input type='text' onChange={handleChange}/>
-      <button>
+    <form className='form--element' onSubmit={handleSummit}>
+      <input className='search--input' type='text' onChange={handleChange}/>
+      <button className='btn--default'>
         Search
       </button>
     </form>

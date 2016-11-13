@@ -1,0 +1,17 @@
+.form--element {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  .search--input {
+    width: 90%;
+    border: solid 1px #ccc;
+    border-right-width: 0;
+    padding: 3px 5px 3px 5px;
+  }
+
+  .btn--default {
+    width: 10%;
+    padding: 4px 5px 4px 5px;
+    border: none;
+  }
+}
