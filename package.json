@@ -1,0 +1,46 @@
+{
+  "name": "todoapp",
+  "version": "0.0.1",
+  "description": "Todo app with react",
+  "author": "Andrea Zucchini García",
+  "license": "MIT",
+  "main": "./demo/index.js",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "scripts": {
+    "build": "webpack && npm run build:slides",
+    "start": "opener http://localhost:3000 && node server.js"
+  },
+  "dependencies": {
+    "classnames": "2.2",
+    "normalize.css": "4.2",
+    "react": "15.3",
+    "react-addons-css-transition-group": "^15.3.2",
+    "react-dom": "15.3",
+    "react-router": "2.8",
+    "react-router-transitions": "2.1"
+  },
+  "devDependencies": {
+    "babel-cli": "6.14",
+    "babel-eslint": "6.1",
+    "babel-loader": "6.2",
+    "babel-preset-es2015": "6.14",
+    "babel-preset-react": "6.11",
+    "css-loader": "0.25",
+    "eslint-plugin-react": "6.2",
+    "eslint": "3.5",
+    "gh-pages-deploy": "0.4",
+    "node-sass": "3.10",
+    "opener": "1.4",
+    "postcss-loader": "0.13",
+    "react-hot-loader": "1.3",
+    "sass-loader": "4.0",
+    "style-loader": "0.13",
+    "webpack-dev-server": "1.15",
+    "webpack-merge": "0.14",
+    "webpack": "1.13"
+  }
+}
