@@ -1,0 +1,25 @@
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-bottom: 35px;
+  padding: 15px;
+  width: 32%;
+
+  &-title {
+    color: #333;
+    font-weight: 100;
+    font-size: 38px;
+    margin: 5px 0;
+  }
+
+  &-description {
+    font-size: 15px;
+    font-weight: 200;
+  }
+
+  &-image {
+    width: 100%;
+    height: auto;
+  }
+}
