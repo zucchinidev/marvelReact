@@ -1,6 +1,7 @@
 import React from 'react';
 import Logo from './Logo';
 import Card from './Card';
+import SearchForm from './SearchForm';
 import dummyData from '../data/dummy';
 
 const API_URL = 'https://gateway.marvel.com:443/v1/public/';
@@ -48,12 +49,7 @@ export default class MarvelApp extends React.Component {
     return (
       <div className='container'>
         <Logo isCentered/>
-        <form onSubmit={this.handleSummit}>
-          <input type='text' onChange={this.handleChange}/>
-          <button>
-            Search
-          </button>
-        </form>
+        <SearchForm handleChange={this.handleChange} handleSummit={this.handleSummit}/>
         <div className='results'>
           {this.state.results.map((hero) => <Card item={hero} key={hero.id}/>)}
         </div>
