@@ -4,6 +4,8 @@ import Logo from './Logo';
 import Card from './Card';
 import SearchForm from './SearchForm';
 import dummyData from '../data/dummy';
+import lscache from 'lscache';
+
 
 const API_URL = 'https://gateway.marvel.com:443/v1/public/';
 const APIKEY_QUERYSTRING = 'apikey=dffbff78239bd510c4663f2650082c60';
@@ -25,11 +27,17 @@ export default class MarvelApp extends React.Component {
   constructor(...args) {
     super(...args);
     this.state = {
-      results: dummyData,
-      isLoading: false
+      results: [],
+      isLoading: false,
+      favs: []
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSummit = this.handleSummit.bind(this);
+  }
+
+  componentDidMount() {
+    const favs = lscache.get('favs') || [];
+    this.setState({favs: favs});
   }
 
 
@@ -52,11 +60,17 @@ export default class MarvelApp extends React.Component {
                   results: res.data.results,
                   isLoading: false
                 });
-              });
+              })
+      .catch(() => {
+        this.setState({
+          results: [],
+          isLoading: false
+        });
+      });
   }
 
   render() {
-    const {isLoading} = this.state;
+    const {isLoading, favs, results} = this.state;
     return (
       <div className='container'>
         <Logo isCentered/>
@@ -66,7 +80,13 @@ export default class MarvelApp extends React.Component {
           isLoading={isLoading}
         />
         <div className='results'>
-          {this.state.results.map((hero) => <Card item={hero} key={hero.id}/>)}
+          {results.length <= 0 ? <p className='has-text-centered w-100'>Busca tu héroe favorito</p> :
+          results.map((hero) => (
+            <Card
+              isFav={favs.some(id => id === hero.id)}
+              item={hero}
+              key={hero.id} />)
+          )}
         </div>
       </div>
     );
